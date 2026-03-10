@@ -1,0 +1,32 @@
+[Defines]
+  INF_VERSION                    = 0x0001001A
+  BASE_NAME                      = PeiPpiDemoPeim
+  FILE_GUID                      = 11223344-5566-7788-99AA-BBCCDDEEFF00
+  MODULE_TYPE                    = PEIM
+  VERSION_STRING                 = 0.1
+  ENTRY_POINT                    = PeiPpiDemoPeimEntry
+
+[Sources]
+  PeiPpiDemoPeim.c
+
+[Packages]
+  MdePkg/MdePkg.dec
+  MdeModulePkg/MdeModulePkg.dec
+  PeiPpiDemoPkg/PeiPpiDemoPkg.dec
+
+[LibraryClasses]
+  BaseLib
+  DebugLib
+  HobLib
+  PeimEntryPoint
+
+[Guids]
+  gMyPeiVarGuid
+  gMyGuidHobGuid
+
+[Ppis]
+  gMyPeiDemoPpiGuid
+  gEfiPeiReadOnlyVariable2PpiGuid
+
+[Depex]
+  TRUE

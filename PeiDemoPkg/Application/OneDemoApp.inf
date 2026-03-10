@@ -1,0 +1,22 @@
+[Defines]
+  INF_VERSION                    = 0x0001001A
+  BASE_NAME                      = OneDemoApp
+  FILE_GUID                      = 55667788-99AA-BBCC-DDEE-001122334455
+  MODULE_TYPE                    = UEFI_APPLICATION
+  VERSION_STRING                 = 0.1
+  ENTRY_POINT                    = UefiMain
+
+[Sources]
+  OneDemoApp.c
+
+[Packages]
+  MdePkg/MdePkg.dec
+
+[LibraryClasses]
+  BaseLib
+  BaseMemoryLib
+  MemoryAllocationLib
+  UefiApplicationEntryPoint
+  UefiBootServicesTableLib
+  UefiLib
+  UefiRuntimeServicesTableLib

@@ -1,0 +1,22 @@
+[Defines]
+  INF_VERSION                    = 0x0001001A
+  BASE_NAME                      = SetVariableApp
+  FILE_GUID                      = 22334455-6677-8899-AABB-CCDDEEFF0011
+  MODULE_TYPE                    = UEFI_APPLICATION
+  VERSION_STRING                 = 0.1
+  ENTRY_POINT                    = UefiMain
+
+[Sources]
+  SetVariableApp.c
+
+[Packages]
+  MdePkg/MdePkg.dec
+  PeiPpiDemoPkg/PeiPpiDemoPkg.dec
+
+[LibraryClasses]
+  UefiApplicationEntryPoint
+  UefiLib
+  UefiRuntimeServicesTableLib
+
+[Guids]
+  gMyPeiVarGuid
