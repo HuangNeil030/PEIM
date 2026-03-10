@@ -722,18 +722,22 @@ FS0:\> OneDemoApp.efi
 
 ---
 
-# 10. 一句話總結
+cd /d D:\BIOS\MyWorkSpace\edk2
 
-**`OneDemoApp.efi` 是一支單檔 UEFI Shell 展示程式，用來展示 PPI、PEIM Provider/Consumer、Set Variable、Read HOB 等五個功能的概念流程；其中 SetVariable 為真實 Runtime Service，而 PPI / PEIM / HOB 則以單程式模擬方式呈現。**
+edksetup.bat Rebuild
 
-如果你要，我下一步可以直接把這份內容再整理成：
+chcp 65001
 
-**更正式的 Markdown README 成品版**
-包含：
+set PYTHONUTF8=1
 
-* 專案簡介
-* 架構圖
-* 功能表
-* 執行流程
-* 截圖說明
-* 結論區塊
+set PYTHONIOENCODING=utf-8
+
+rmdir /s /q Build\FileSystemPkg
+
+build -p PeiPpiDemoPkg\OneDemoApp.dsc -m PeiPpiDemoPkg\Application\OneDemoApp.inf -a X64 -t VS2019 -b DEBUG
+
+build -p PeiPpiDemoPkg\PeiPpiDemoApp.dsc -m PeiPpiDemoPkg\Application\SetVariableApp.inf -a X64 -t VS2019 -b DEBUG
+
+build -p PeiPpiDemoPkg\PeiPpiDemoReadHobApp.dsc -m PeiPpiDemoPkg\Application\ReadHobApp.inf -a X64 -t VS2019 -b DEBUG
+
+build -p PeiPpiDemoPkg\PeiPpiDemoPeim.dsc -m PeiPpiDemoPkg\Peim\PeiPpiDemoPeim.inf -a X64 -t VS2019 -b DEBUG
